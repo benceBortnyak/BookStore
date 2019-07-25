@@ -6,17 +6,15 @@ public class User extends AbstractModel {
 
     private final String email;
     private final String password;
-    private final String username;
     private final String firstName;
     private final String secondName;
     private final Boolean isAdmin;
     private final Integer user_credit;
 
-    public User(int id, String email, String password, String username, String firstName, String secondName, Boolean isAdmin, Integer user_credit) {
+    public User(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer user_credit) {
         super(id);
         this.email = email;
         this.password = password;
-        this.username = username;
         this.firstName = firstName;
         this.secondName = secondName;
         this.isAdmin = isAdmin;
@@ -29,10 +27,6 @@ public class User extends AbstractModel {
 
     public String getPassword() {
         return password;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public String getFirstName() {

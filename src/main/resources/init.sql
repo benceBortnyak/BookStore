@@ -19,7 +19,6 @@ DROP TABLE IF EXISTS user_details;
 
 create table users(
   user_id serial primary key,
-  user_name varchar(30) not null,
   user_email varchar(40) not null,
   user_first_name varchar(20),
   user_second_name varchar(30),
@@ -33,8 +32,6 @@ create table user_details(
   user_street varchar(20),
   user_zipcode int,
   user_street_number int,
-  purchase_count int,
-  feedback int,
   user_id int UNIQUE,
   foreign key (user_id) references users(user_id)
 );
@@ -52,7 +49,6 @@ create table orders(
   order_id serial PRIMARY KEY,
   order_price int,
   completed boolean,
-  order_address varchar(50),
   order_user_id int UNIQUE,
   foreign key(order_user_id) references users(user_id)
 );
@@ -78,6 +74,23 @@ create or replace function balanceCheck() RETURNS trigger AS '
     AFTER UPDATE ON users
     FOR EACH ROW EXECUTE PROCEDURE balanceCheck();
 
-insert into users(user_name,user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss János','Kiss','János','kj@gmail.com','radomhash',false,1000);
-insert into users(user_name,user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valaki Valami','Valami','Valami','vv@gmail.com','radomhash',true,400);
+create or replace function stockCheck() RETURNS trigger AS '
+    BEGIN
+        IF NEW.stock < 0 THEN
+            RAISE ''Value cannot be less than zero'';
+        END IF;
+        RETURN NULL;
+    END
+' LANGUAGE plpgsql;
 
+create trigger balanceCheck
+    AFTER UPDATE ON users
+    FOR EACH ROW EXECUTE PROCEDURE balanceCheck();
+
+create trigger stockCheck
+    AFTER update on books
+    FOR EACH ROW EXECUTE PROCEDURE stockCheck();
+
+
+insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss','János','kj@gmail.com','radomhash',false,1000);
+insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valami','Valami','vv@gmail.com','radomhash',true,400);

@@ -12,5 +12,8 @@
         <title>Book Store</title>
     </head>
 <body>
+<div id="booksDiv" class="hidden content">
+
+</div>
 </body>
 </html>
