@@ -5,8 +5,6 @@ import com.codecool.web.model.User;
 import com.codecool.web.model.UserDetails;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class DatabaseUserDao extends AbstractDao implements UserDao {
 
@@ -32,14 +30,14 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
     }
 
     @Override
-    public void addUser(String user_email ,String user_first_name,String user_second_name,String user_password ,Boolean is_admin ) throws SQLException{
+    public void addUser(String userEmail ,String userFirstName,String userSecondName,String userPassword ,Boolean isAdmin ) throws SQLException{
         String sql = "INSERT into users (user_email ,user_first_name, user_second_name, user_password ,is_admin ,user_credit) VALUES (?,?,?,?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setString(1,user_email);
-            statement.setString(2,user_first_name);
-            statement.setString(3,user_second_name);
-            statement.setString(4,user_password);
-            statement.setBoolean(5,is_admin);
+            statement.setString(1,userEmail);
+            statement.setString(2,userFirstName);
+            statement.setString(3,userSecondName);
+            statement.setString(4,userPassword);
+            statement.setBoolean(5,isAdmin);
             statement.setInt(6,6000);
             executeInsert(statement);
         }catch (SQLException e){
@@ -47,14 +45,14 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
         }
     }
     @Override
-    public void addUserDetalis(UserDetails userDetails, int user_id) throws SQLException{
+    public void addUserDetalis(UserDetails userDetails, int userId) throws SQLException{
         String sql =" INSERT into user_details (user_city,user_street,user_zipcode,user_street_number,user_id ) values (?,?,?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setString(1,userDetails.getUser_city());
-            statement.setString(2,userDetails.getUser_street());
-            statement.setInt(3,userDetails.getUser_zipcode());
-            statement.setInt(4,userDetails.getUser_street_number());
-            statement.setInt(5,user_id);
+            statement.setString(1,userDetails.getUserCity());
+            statement.setString(2,userDetails.getUserStreet());
+            statement.setInt(3,userDetails.getUserZipcode());
+            statement.setInt(4,userDetails.getUserStreetNumber());
+            statement.setInt(5,userId);
             executeInsert(statement);
         }catch (SQLException e){
             throw e;

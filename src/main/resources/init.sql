@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS users cascade;
 DROP TABLE IF EXISTS books cascade;
 DROP TABLE IF EXISTS orders cascade;
 DROP TABLE IF EXISTS book_orders cascade;
-DROP TABLE IF EXISTS user_details;
+DROP TABLE IF EXISTS user_details cascade;
 
 create table users(
   user_id serial primary key,
@@ -27,7 +27,7 @@ create table users(
   user_credit int
 );
 create table user_details(
-  detail_id serial primary key,
+  detailId serial primary key,
   user_city varchar(30),
   user_street varchar(20),
   user_zipcode int,
@@ -47,7 +47,7 @@ create table books(
 
 create table orders(
   order_id serial PRIMARY KEY,
-  order_price int,
+  orderPrice int,
   completed boolean,
   order_user_id int UNIQUE,
   foreign key(order_user_id) references users(user_id)
@@ -70,10 +70,6 @@ create or replace function balanceCheck() RETURNS trigger AS '
   END
   ' LANGUAGE plpgsql;
 
-  create trigger balanceCheck
-    AFTER UPDATE ON users
-    FOR EACH ROW EXECUTE PROCEDURE balanceCheck();
-
 create or replace function stockCheck() RETURNS trigger AS '
     BEGIN
         IF NEW.stock < 0 THEN
@@ -94,3 +90,5 @@ create trigger stockCheck
 
 insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss','János','kj@gmail.com','radomhash',false,1000);
 insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valami','Valami','vv@gmail.com','radomhash',true,400);
+insert into books(book_id,book_title,book_author,book_page,book_price,stock)values ('1','asd','Peter',200,10,3);
+insert into books(book_id,book_title,book_author,book_page,book_price,stock)values ('2','Title','D.Peter',500,40,30);

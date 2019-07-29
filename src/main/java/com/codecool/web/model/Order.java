@@ -1,31 +1,31 @@
 package com.codecool.web.model;
 
 public class Order {
-    private final int order_id;
-    private final int order_price;
+    private final int orderId;
+    private final int orderPrice;
     private final boolean completed;
-    private final int order_user_id;
+    private final int orderUserId;
 
-    public Order(int order_id, int order_price, boolean completed,int order_user_id) {
-        this.order_id = order_id;
-        this.order_price = order_price;
+    public Order(int orderId, int orderPrice, boolean completed,int orderUserId) {
+        this.orderId = orderId;
+        this.orderPrice = orderPrice;
         this.completed = completed;
-        this.order_user_id = order_user_id;
+        this.orderUserId = orderUserId;
     }
 
-    public int getOrder_id() {
-        return order_id;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public int getOrder_price() {
-        return order_price;
+    public int getOrderPrice() {
+        return orderPrice;
     }
 
     public boolean isCompleted() {
         return completed;
     }
 
-    public int getOrder_user_id() {
-        return order_user_id;
+    public int getOrderUserId() {
+        return orderUserId;
     }
 }

@@ -1,50 +1,50 @@
 package com.codecool.web.model;
 
 public class UserDetails extends User {
-    private final int detail_id;
-    private final String user_city;
-    private final String user_street;
-    private final int user_zipcode;
-    private final int user_street_number;
-    private final int detail_user_id;
-    private final int user_id;
+    private final int detailId;
+    private final String userCity;
+    private final String userStreet;
+    private final int userZipcode;
+    private final int userStreetNumber;
+    private final int detailUserId;
+    private final int userId;
 
-    public UserDetails(int id, String email, String password, String username, String firstName, String secondName, Boolean isAdmin, Integer user_credit, int detail_id, String user_city, String user_street, int user_zipcode, int user_street_number,int detail_user_id, int user_id) {
-        super(id, email, password, firstName, secondName, isAdmin, user_credit);
-        this.detail_id = detail_id;
-        this.user_city = user_city;
-        this.user_street = user_street;
-        this.user_zipcode = user_zipcode;
-        this.user_street_number = user_street_number;
-        this.detail_user_id = detail_user_id;
-        this.user_id = user_id;
+    public UserDetails(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer userCredit, int detailId, String userCity, String userStreet, int userZipcode, int userStreetNumber, int detailUserId, int userId) {
+        super(id, email, password, firstName, secondName, isAdmin, userCredit);
+        this.detailId = detailId;
+        this.userCity = userCity;
+        this.userStreet = userStreet;
+        this.userZipcode = userZipcode;
+        this.userStreetNumber = userStreetNumber;
+        this.detailUserId = detailUserId;
+        this.userId = userId;
     }
 
-    public int getDetail_id() {
-        return detail_id;
+    public int getDetailId() {
+        return detailId;
     }
 
-    public String getUser_city() {
-        return user_city;
+    public String getUserCity() {
+        return userCity;
     }
 
-    public String getUser_street() {
-        return user_street;
+    public String getUserStreet() {
+        return userStreet;
     }
 
-    public int getUser_zipcode() {
-        return user_zipcode;
+    public int getUserZipcode() {
+        return userZipcode;
     }
 
-    public int getUser_street_number() {
-        return user_street_number;
+    public int getUserStreetNumber() {
+        return userStreetNumber;
     }
 
-    public int getDetail_user_id() {
-        return detail_user_id;
+    public int getDetailUserId() {
+        return detailUserId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 }

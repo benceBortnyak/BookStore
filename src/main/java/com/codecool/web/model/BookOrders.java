@@ -2,26 +2,26 @@ package com.codecool.web.model;
 
 public class BookOrders {
 
-    private final int book_orders_id;
-    private final int book_id_order;
-    private final int order_id_book;
+    private final int bookOrdersId;
+    private final int bookIdOrder;
+    private final int orderIdBook;
 
-    public BookOrders(int book_orders_id, int book_id_order, int order_id_book) {
-        this.book_orders_id = book_orders_id;
-        this.book_id_order = book_id_order;
-        this.order_id_book = order_id_book;
+    public BookOrders(int bookOrdersId, int bookIdOrder, int orderIdBook) {
+        this.bookOrdersId = bookOrdersId;
+        this.bookIdOrder = bookIdOrder;
+        this.orderIdBook = orderIdBook;
     }
 
-    public int getBook_orders_id() {
-        return book_orders_id;
+    public int getBookOrdersId() {
+        return bookOrdersId;
     }
 
-    public int getBook_id_order() {
-        return book_id_order;
+    public int getBookIdOrder() {
+        return bookIdOrder;
     }
 
-    public int getOrder_id_book() {
-        return order_id_book;
+    public int getOrderIdBook() {
+        return orderIdBook;
     }
 }
 

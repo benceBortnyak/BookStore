@@ -3,6 +3,8 @@ const BAD_REQUEST = 400;
 const UNAUTHORIZED = 401;
 const NOT_FOUND = 404;
 const INTERNAL_SERVER_ERROR = 500;
+let buttons = [];
+let loginContentDivEl;
 
 
 
@@ -43,6 +45,16 @@ function showContents(ids) {
             contentEl.classList.add('hidden');
         }
     }
+}
+function setFocus(focus) {
+    let getButton;
+    for (let i = 0; i < buttons.length; i++) {
+        getButton = document.getElementById(buttons[i]);
+        if(!(getButton == null)){
+            getButton.removeAttribute('class');
+        }
+    }
+    document.getElementById(focus).setAttribute('class','active');
 }
 
 function removeAllChildren(el) {
@@ -91,6 +103,17 @@ function setUnauthorized() {
 }
 
 function onLoad() {
+    buttons = ['home','cart','login','logout'];
+    addEventListener("load",onBookLoad);
+    const homeButton = document.getElementById('home');
+    homeButton.addEventListener('click',onBookLoad);
+    const cartButton= document.getElementById('cart');
+    cartButton.addEventListener('click',onCartClicked);
+    const loginDivButton = document.getElementById('login');
+    loginDivButton.addEventListener('click',onLoginNavBarButtonClicked);
+    loginContentDivEl = document.getElementById('loginRegisterDiv');
+    const loginButton = document.getElementById('loginButton');
+    loginButton.addEventListener('click',onLoginButtonClicked);
 
 
 }

@@ -1,44 +1,44 @@
 package com.codecool.web.model;
 
 public class Book {
-    private final int book_id;
-    private final String book_title;
-    private final String book_author;
-    private final int book_page;
-    private int book_price;
+    private final int bookId;
+    private final String bookTitle;
+    private final String bookAuthor;
+    private final int bookPage;
+    private int bookPrice;
     private int stock;
 
-    public Book(int book_id, String book_title, String book_author, int book_page, int book_price, int stock) {
-        this.book_id = book_id;
-        this.book_title = book_title;
-        this.book_author = book_author;
-        this.book_page = book_page;
-        this.book_price = book_price;
+    public Book(int bookId, String bookTitle, String bookAuthor, int bookPage, int bookPrice, int stock) {
+        this.bookId = bookId;
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookPage = bookPage;
+        this.bookPrice = bookPrice;
         this.stock = stock;
     }
 
-    public int getBook_id() {
-        return book_id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public String getBook_title() {
-        return book_title;
+    public String getBookTitle() {
+        return bookTitle;
     }
 
-    public String getBook_author() {
-        return book_author;
+    public String getBookAuthor() {
+        return bookAuthor;
     }
 
-    public int getBook_page() {
-        return book_page;
+    public int getBookPage() {
+        return bookPage;
     }
 
-    public int getBook_price() {
-        return book_price;
+    public int getBookPrice() {
+        return bookPrice;
     }
 
-    public void setBook_price(int book_price) {
-        this.book_price = book_price;
+    public void setBookPrice(int bookPrice) {
+        this.bookPrice = bookPrice;
     }
 
     public int getStock() {

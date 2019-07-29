@@ -1,24 +1,22 @@
 package com.codecool.web.model;
 
-import java.util.Objects;
-
 public class User extends AbstractModel {
 
     private final String email;
-    private final String password;
+    private String password;
     private final String firstName;
     private final String secondName;
     private final Boolean isAdmin;
-    private final Integer user_credit;
+    private final Integer userCredit;
 
-    public User(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer user_credit) {
+    public User(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer userCredit) {
         super(id);
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.secondName = secondName;
         this.isAdmin = isAdmin;
-        this.user_credit = user_credit;
+        this.userCredit = userCredit;
     }
 
     public String getEmail() {
@@ -41,7 +39,11 @@ public class User extends AbstractModel {
         return isAdmin;
     }
 
-    public Integer getUser_credit() {
-        return user_credit;
+    public Integer getUserCredit() {
+        return userCredit;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
