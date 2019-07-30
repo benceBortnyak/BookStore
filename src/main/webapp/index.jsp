@@ -5,6 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <c:url value="/style.css" var="styleUrl"/>
         <c:url value="/index.js" var="indexScriptUrl"/>
         <c:url value="/Books.js" var="booksScriptUrl"/>
@@ -23,7 +25,18 @@
         <ul>
             <li><a id="home">Home</a></li>
             <li><a id="cart">Cart</a></li>
-            <li><a id="login">Login</a></li>
+            <li><a id="register">Register</a></li>
+            <li>
+                <div id="loginDiv">
+                    <form id="loginForm" onsubmit="return false;">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="example@gmail.com" required/>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required/>
+                    <input type="submit" id ="loginButton" value="Login"/>
+                    </form>
+                </div>
+            </li>
             <li style="float:right"><a id="logout" >Logout</a></li>
         </ul>
     </div>
@@ -36,13 +49,7 @@
 
     </div>
     <div id="loginRegisterDiv" class="hidden content">
-        <form id="loginForm" onsubmit="return false;">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="example@gmail.com" required/>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" required/>
-            <input type="submit" id ="loginButton" value="Login"/>
-        </form>
+
     </div>
 </div>
 </body>

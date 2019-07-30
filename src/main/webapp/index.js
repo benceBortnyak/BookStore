@@ -109,8 +109,6 @@ function onLoad() {
     homeButton.addEventListener('click',onBookLoad);
     const cartButton= document.getElementById('cart');
     cartButton.addEventListener('click',onCartClicked);
-    const loginDivButton = document.getElementById('login');
-    loginDivButton.addEventListener('click',onLoginNavBarButtonClicked);
     loginContentDivEl = document.getElementById('loginRegisterDiv');
     const loginButton = document.getElementById('loginButton');
     loginButton.addEventListener('click',onLoginButtonClicked);

@@ -88,7 +88,7 @@ create trigger stockCheck
     FOR EACH ROW EXECUTE PROCEDURE stockCheck();
 
 
-insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss','János','kj@gmail.com','radomhash',false,1000);
-insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valami','Valami','vv@gmail.com','radomhash',true,400);
+insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss','János','kj@gmail.com','randomhash',false,1000);
+insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valami','Valami','vv@gmail.com','randomhash',true,400);
 insert into books(book_id,book_title,book_author,book_page,book_price,stock)values ('1','asd','Peter',200,10,3);
 insert into books(book_id,book_title,book_author,book_page,book_price,stock)values ('2','Title','D.Peter',500,40,30);

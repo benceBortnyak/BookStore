@@ -43,3 +43,9 @@
 .topnav .active {
     background-color: #4CAF50;
 }
+body{
+    margin: 0 auto;
+}
+#loginDiv{
+    margin: 12px;
+}

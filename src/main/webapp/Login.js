@@ -1,10 +1,12 @@
+
 function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
+
         showContents(['main', 'cart']);
     } else {
-        onOtherResponse(loginContentDivEl, this);
+        alert('Login Failed');
     }
 }
 

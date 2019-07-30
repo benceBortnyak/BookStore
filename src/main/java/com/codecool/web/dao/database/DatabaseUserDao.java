@@ -17,7 +17,7 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
         if(email.equals("")){
             throw new IllegalArgumentException("Email cannot be empty");
         }
-        String sql = "SELECT user_id, user_email ,user_first_name, user_second_name, user_password ,is_admin ,user_credit FROM users WHERE user_email = ?";
+        String sql = "SELECT * FROM users WHERE user_email = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,email);
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -69,6 +69,10 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
         String pw = resultSet.getString("user_password");
         Boolean admin = resultSet.getBoolean("is_admin");
         int credit = resultSet.getInt("user_credit");
-        return new User(id,email,pw,firstName,sencondName,admin,credit);
+
+        User user =  new User(id,email,pw,firstName,sencondName,admin,credit);
+        System.out.println(user);
+        return user;
+
     }
 }
