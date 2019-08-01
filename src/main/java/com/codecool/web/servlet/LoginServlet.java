@@ -26,6 +26,7 @@ public class LoginServlet extends AbstractServlet {
             User user = userService.getUserByEmail(req.getParameter("email"));
             if(loginService.loginCheck(user.getEmail(),req.getParameter("password"),user.getPassword())){
                 user.setPassword(null);
+                user.setAdmin(null);
                 System.out.println(user);
                 req.getSession().setAttribute("user",user);
                 sendMessage(resp,HttpServletResponse.SC_OK,user);

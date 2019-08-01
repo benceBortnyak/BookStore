@@ -27,7 +27,7 @@ public class DatabaseOrderDao extends AbstractDao implements OrderDao {
 
     @Override
     public void addOrderBook(List<Book> bookList, int orderId) throws SQLException {
-
+        connection.setAutoCommit(false);
         String sql = "INSERT INTO book_orders (book_id_order,order_id_book) values (?,?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (int i = 0; i < bookList.size(); i++) {

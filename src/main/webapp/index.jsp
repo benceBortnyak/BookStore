@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <c:url value="/style.css" var="styleUrl"/>
@@ -12,45 +13,71 @@
         <c:url value="/Books.js" var="booksScriptUrl"/>
         <c:url value="/Cart.js" var="cartScriptUrl"/>
         <c:url value="Login.js" var="loginScriptUrl"/>
+        <c:url value="logout.js" var="logoutScriptUrl"/>
+        <c:url value="register.js" var="registerScriptUrl"/>
         <link rel="stylesheet" type="text/css" href="${styleUrl}">
         <script src="${indexScriptUrl}"></script>
         <script src="${booksScriptUrl}"></script>
         <script src="${cartScriptUrl}"></script>
         <script src="${loginScriptUrl}"></script>
+        <script src="${logoutScriptUrl}"></script>
+        <script src="${registerScriptUrl}"></script>
         <title>Book Store</title>
     </head>
 <body>
 <div class="main">
     <div class="topnav">
-        <ul>
+        <ul id="navBarList">
             <li><a id="home">Home</a></li>
             <li><a id="cart">Cart</a></li>
             <li><a id="register">Register</a></li>
-            <li>
+            <li id ="loginLi">
                 <div id="loginDiv">
                     <form id="loginForm" onsubmit="return false;">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" placeholder="example@gmail.com" required/>
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" required/>
-                    <input type="submit" id ="loginButton" value="Login"/>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="example@gmail.com" required/>
+                        <label for="password">Password</label>
+                        <input id="password" type="password" name="password" required/>
+                        <input type="submit" id ="loginButton" value="Login"/>
                     </form>
                 </div>
             </li>
-            <li style="float:right"><a id="logout" >Logout</a></li>
+            <li id = "welcomeLi"></li>
+            <li style="float:right"><a id="logoutBtn" class="hidden content" >Logout</a></li>
         </ul>
     </div>
 
-    <div id="booksDiv" class="hidden content">
-
+    <div id="registerDiv" class="hidden content">
+        <div id="signUp-content">
+            <form accept-charset=utf-8 id='signUp-form' onsubmit="return false;">
+                <h1>Register</h1>
+                <label for="foreName">Forename</label>
+                <input id ="foreName" type="text" name="foreName" required>
+                <label for="lastName"> Last name</label>
+                <input id = "lastName" type="text" name="lastName" required>
+                <br>
+                <label for="emailReg">Email</label>
+                <input id = "emailReg" type="email" name="emailReg" required>
+                <br>
+                <label for = "passwordReg">Password</label>
+                <input id="passwordReg" type="password" name="passwordReg"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></p>
+                <label for="passwordRegRe">Re-enter password</label>
+                <input id ="passwordRegRe" type="password" name="passwordRegRe"
+                              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+                              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <br>
+                <button id='submitButton' type="submit">Register</button>
+            </form>
+        </div>
     </div>
 
-    <div id="cartDiv" class="hidden content">
+    <div id="booksDiv" class="hidden content"></div>
 
-    </div>
-    <div id="loginRegisterDiv" class="hidden content">
+    <div id="cartDiv" class="hidden content"></div>
 
-    </div>
+    <div id="loginRegisterDiv" class="hidden content"></div>
+
 </div>
 </body>
 </html>

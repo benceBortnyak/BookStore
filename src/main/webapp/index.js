@@ -112,8 +112,12 @@ function onLoad() {
     loginContentDivEl = document.getElementById('loginRegisterDiv');
     const loginButton = document.getElementById('loginButton');
     loginButton.addEventListener('click',onLoginButtonClicked);
-
-
+    const logoutButton = document.getElementById('logoutBtn');
+    logoutButton.addEventListener('click',onLogoutButtonClicked);
+    const registerButton = document.getElementById('register');
+    registerButton.addEventListener('click',onRegisterButtonClicked);
+    const registerFormButton = document.getElementById('submitButton');
+    registerFormButton.addEventListener('click',onRegisterFormButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

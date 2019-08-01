@@ -41,7 +41,7 @@ function appendBooks() {
 }
 function checkIfInCart(book) {
     for (const key of Object.keys(sessionStorage)) {
-        if(key === book.bookId+book.bookTitle){
+        if(key === book.bookId+'book'){
             return true;
         }
     }
@@ -50,10 +50,14 @@ function checkIfInCart(book) {
 
 
 function addToSessionStorage(book) {
-    const name = book.bookId+book.bookTitle;
-    sessionStorage.setItem(name, JSON.stringify(book));
-    const button = book.bookId+book.bookTitle;
-    document.getElementById(button).remove();
+    if(hasAuthorization()) {
+        const name = book.bookId + book.bookTitle;
+        sessionStorage.setItem(name, JSON.stringify(book));
+        const button = book.bookId + book.bookTitle;
+        document.getElementById(button).remove();
+    }else{
+        alert('You have to login if you want to add something to your cart');
+    }
 }
 
 

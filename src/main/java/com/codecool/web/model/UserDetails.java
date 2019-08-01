@@ -1,22 +1,19 @@
 package com.codecool.web.model;
 
-public class UserDetails extends User {
+public class UserDetails {
     private final int detailId;
     private final String userCity;
     private final String userStreet;
     private final int userZipcode;
     private final int userStreetNumber;
-    private final int detailUserId;
     private final int userId;
 
-    public UserDetails(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer userCredit, int detailId, String userCity, String userStreet, int userZipcode, int userStreetNumber, int detailUserId, int userId) {
-        super(id, email, password, firstName, secondName, isAdmin, userCredit);
+    public UserDetails(int detailId, String userCity, String userStreet, int userZipcode, int userStreetNumber,int userId) {
         this.detailId = detailId;
         this.userCity = userCity;
         this.userStreet = userStreet;
         this.userZipcode = userZipcode;
         this.userStreetNumber = userStreetNumber;
-        this.detailUserId = detailUserId;
         this.userId = userId;
     }
 
@@ -38,10 +35,6 @@ public class UserDetails extends User {
 
     public int getUserStreetNumber() {
         return userStreetNumber;
-    }
-
-    public int getDetailUserId() {
-        return detailUserId;
     }
 
     public int getUserId() {

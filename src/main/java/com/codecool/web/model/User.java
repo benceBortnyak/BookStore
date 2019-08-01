@@ -6,8 +6,8 @@ public class User extends AbstractModel {
     private String password;
     private final String firstName;
     private final String secondName;
-    private final Boolean isAdmin;
-    private final Integer userCredit;
+    private Boolean isAdmin;
+    private Integer userCredit;
 
     public User(int id, String email, String password, String firstName, String secondName, Boolean isAdmin, Integer userCredit) {
         super(id);
@@ -45,5 +45,13 @@ public class User extends AbstractModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
+    public void setUserCredit(Integer userCredit) {
+        this.userCredit = userCredit;
     }
 }

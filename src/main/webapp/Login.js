@@ -3,8 +3,9 @@ function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
-
-        showContents(['main', 'cart']);
+        removeLogin();
+        onBookLoad();
+        console.log('logged in');
     } else {
         alert('Login Failed');
     }
@@ -30,6 +31,17 @@ function onLoginButtonClicked() {
     console.log(params);
     xhr.send(params);
 }
-function onLoginNavBarButtonClicked() {
-    showContents(['main','loginRegisterDiv']);
+
+function removeLogin() {
+    document.getElementById('loginDiv').setAttribute('class','hidden content');
+    document.getElementById('register').setAttribute('class','hidden content');
+    document.getElementById('logoutBtn').removeAttribute('class');
+    const topNav = document.getElementById('navBarList');
+    const currentUser = JSON.parse(localStorage.getItem('user')).secondName;
+    const welcome = document.getElementById('welcomeLi');
+    const innerWelcome = document.createElement('a');
+    welcome.removeAttribute('class');
+    innerWelcome.textContent = 'Welcome: ' + currentUser;
+    welcome.append(innerWelcome);
+    topNav.append(welcome);
 }

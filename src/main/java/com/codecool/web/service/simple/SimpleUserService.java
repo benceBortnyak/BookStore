@@ -25,9 +25,9 @@ public class SimpleUserService implements UserService {
         }
     }
     @Override
-    public void addUser(String user_email ,String user_first_name,String user_second_name,String user_password ,Boolean is_admin ) throws SQLException,ServiceException{
+    public User addUser(String user_email ,String user_first_name,String user_second_name,String user_password ,Boolean is_admin ) throws SQLException,ServiceException{
         try{
-            userDao.addUser(user_email ,user_first_name,user_second_name,user_password ,is_admin);
+            return userDao.addUser(user_email ,user_first_name,user_second_name,user_password ,is_admin);
         }catch (IllegalArgumentException e){
             throw new ServiceException(e.getMessage());
         }
@@ -40,5 +40,12 @@ public class SimpleUserService implements UserService {
             throw new ServiceException(e.getMessage());
         }
     }
-
+    @Override
+    public UserDetails getUserDetalisById(int id) throws ServiceException,IllegalArgumentException{
+        try {
+            return userDao.getUserDetails(id);
+        }catch (SQLException e){
+            throw new ServiceException(e.getMessage());
+        }
+    }
 }
