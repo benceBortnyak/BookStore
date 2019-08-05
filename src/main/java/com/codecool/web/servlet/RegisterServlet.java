@@ -38,7 +38,7 @@ public class RegisterServlet extends AbstractServlet{
                     sendMessage(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
                 }
             }else{
-                sendMessage(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Registered");
+                sendMessage(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Register Failed");
             }
         }catch (SQLException e ){
             sendMessage(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());

@@ -32,7 +32,7 @@ create table user_details(
   user_street varchar(20),
   user_zipcode int,
   user_street_number int,
-  user_id int UNIQUE,
+  user_id int,
   foreign key (user_id) references users(user_id)
 );
 
@@ -41,13 +41,11 @@ create table books(
   book_title varchar(30),
   book_author varchar(30),
   book_page int,
-  book_price int,
   stock int
 );
 
 create table orders(
   order_id serial PRIMARY KEY,
-  orderPrice int,
   completed boolean,
   order_user_id int UNIQUE,
   foreign key(order_user_id) references users(user_id)
@@ -57,7 +55,7 @@ create table book_orders(
   book_orders_id serial,
   book_id_order int,
   foreign key (book_id_order) references books(book_id),
-  order_id_book int UNIQUE ,
+  order_id_book int UNIQUE,
   foreign key (order_id_book) references orders(order_id)
 );
 
@@ -90,5 +88,5 @@ create trigger stockCheck
 
 insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Kiss','János','kj@gmail.com','randomhash',false,1000);
 insert into users(user_first_name,user_second_name,user_email,user_password,is_admin,user_credit) values ('Valami','Valami','vv@gmail.com','randomhash',true,400);
-insert into books(book_id,book_title,book_author,book_page,book_price,stock)values (1,'asd','Peter',200,10,3);
-insert into books(book_id,book_title,book_author,book_page,book_price,stock)values (2,'Title','D.Peter',500,40,30);
+insert into books(book_id,book_title,book_author,book_page,stock)values (1,'asd','Peter',200,10);
+insert into books(book_id,book_title,book_author,book_page,stock)values (2,'Title','D.Peter',500,40);

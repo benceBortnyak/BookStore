@@ -4,7 +4,6 @@ function appendBooks() {
     removeAllChildren(booksDivElement);
     setFocus('home');
     let books = JSON.parse(this.responseText);
-    console.log(books);
     for (let i = 0; i < books.length; i++) {
         const book = books[i];
         console.log(book);

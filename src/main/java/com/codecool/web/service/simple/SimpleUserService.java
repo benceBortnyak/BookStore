@@ -33,10 +33,10 @@ public class SimpleUserService implements UserService {
         }
     }
     @Override
-    public void addUserDetalis(UserDetails userDetails, int user_id) throws SQLException,ServiceException{
+    public UserDetails addUserDetalis(UserDetails userDetails, int user_id) throws ServiceException,IllegalArgumentException{
         try{
-            userDao.addUserDetalis(userDetails,user_id);
-        }catch (IllegalArgumentException e){
+            return userDao.addUserDetalis(userDetails,user_id);
+        }catch (SQLException e){
             throw new ServiceException(e.getMessage());
         }
     }

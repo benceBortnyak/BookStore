@@ -1,4 +1,5 @@
 function onRegisterButtonClicked() {
+    setFocus('register');
     showContents(['main','registerDiv']);
 
 }

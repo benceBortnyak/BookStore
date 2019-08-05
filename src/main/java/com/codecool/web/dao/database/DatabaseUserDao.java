@@ -52,18 +52,21 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
     }
 
     @Override
-    public void addUserDetalis(UserDetails userDetails, int userId) throws SQLException{
-        String sql =" INSERT into user_details (user_city,user_street,user_zipcode,user_street_number,user_id ) values (?,?,?,?,?)";
-        try(PreparedStatement statement = connection.prepareStatement(sql)){
+    public UserDetails addUserDetalis(UserDetails userDetails, int userId) throws SQLException,IllegalArgumentException {
+        String sql =" INSERT into user_details (user_city,user_street,user_zipcode,user_street_number,user_id) values (?,?,?,?,?)";
+        try(PreparedStatement statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)){
             statement.setString(1,userDetails.getUserCity());
             statement.setString(2,userDetails.getUserStreet());
             statement.setInt(3,userDetails.getUserZipcode());
             statement.setInt(4,userDetails.getUserStreetNumber());
             statement.setInt(5,userId);
             executeInsert(statement);
-        }catch (SQLException e){
-            throw e;
+            ResultSet rs = statement.getGeneratedKeys();
+            if(rs.next()){
+                return fetchUserDetails(rs);
+            }
         }
+        throw new IllegalArgumentException();
     }
 
     @Override

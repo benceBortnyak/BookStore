@@ -37,8 +37,8 @@ function getItemsFromLocalStorage() {
                     removeFromStorage(bookId);
                 });
                 bookEle.appendChild(addToCartButton);
-
             }
+            onOrderBookLoad();
             showContents(['main', 'cartDiv']);
         }
     }else{
@@ -53,4 +53,5 @@ function removeFromStorage(bookId) {
 function onCartClicked() {
     cartElement = document.getElementById('cartDiv');
     getItemsFromLocalStorage();
+
 }

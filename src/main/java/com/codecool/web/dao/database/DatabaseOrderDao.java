@@ -3,9 +3,7 @@ package com.codecool.web.dao.database;
 import com.codecool.web.dao.OrderDao;
 import com.codecool.web.model.Book;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class DatabaseOrderDao extends AbstractDao implements OrderDao {
@@ -15,14 +13,18 @@ public class DatabaseOrderDao extends AbstractDao implements OrderDao {
     }
 
     @Override
-    public void createOrder(List<Book> books, int orderUserId) throws SQLException {
-        String sql = "INSERT INTO orders (order_price, completed,order_user_id) VALUES (?,?,?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, fetchOrderPrice(books));
-            statement.setBoolean(2, false);
-            statement.setInt(3, orderUserId);
+    public Integer createOrder(List<Book> books, int orderUserId) throws SQLException,IllegalArgumentException {
+        String sql = "INSERT INTO orders (completed,order_user_id) VALUES (?,?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setBoolean(1, false);
+            statement.setInt(2, orderUserId);
             executeInsert(statement);
+            ResultSet rs = statement.getGeneratedKeys();
+            if(rs.next()){
+                return rs.getInt("order_id");
+            }
         }
+        throw new IllegalArgumentException();
     }
 
     @Override
@@ -52,11 +54,4 @@ public class DatabaseOrderDao extends AbstractDao implements OrderDao {
         }
     }
 
-    private int fetchOrderPrice(List<Book> bookList) {
-        int price = 0;
-        for (Book book : bookList) {
-            price = price + book.getBookPrice();
-        }
-        return price;
-    }
 }

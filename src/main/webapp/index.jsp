@@ -15,6 +15,7 @@
         <c:url value="Login.js" var="loginScriptUrl"/>
         <c:url value="logout.js" var="logoutScriptUrl"/>
         <c:url value="register.js" var="registerScriptUrl"/>
+        <c:url value="order.js" var="orderScriptUrl"/>
         <link rel="stylesheet" type="text/css" href="${styleUrl}">
         <script src="${indexScriptUrl}"></script>
         <script src="${booksScriptUrl}"></script>
@@ -22,6 +23,7 @@
         <script src="${loginScriptUrl}"></script>
         <script src="${logoutScriptUrl}"></script>
         <script src="${registerScriptUrl}"></script>
+        <script src="${orderScriptUrl}"></script>
         <title>Book Store</title>
     </head>
 <body>
@@ -74,9 +76,39 @@
 
     <div id="booksDiv" class="hidden content"></div>
 
-    <div id="cartDiv" class="hidden content"></div>
+    <div id="cartDiv" class="hidden content">
+
+    </div>
 
     <div id="loginRegisterDiv" class="hidden content"></div>
+
+    <div id = "userDetails" class="hidden content">
+        <div id = "userForm" class="hidden content">
+            <form accept-charset=utf-8 id='detailsForm' onsubmit="return false;">
+                <h1>Details</h1>
+                <label for="city">City</label>
+                <input id ="city" type="text" name="city" required>
+                <br>
+                <label for="street">Street</label>
+                <input id = "street" type="text" name="street" required>
+                <br>
+                <label for="ZipCode">Zip Code</label>
+                <input id = "ZipCode" type="number" name="ZipCode" required>
+                <br>
+                <label for="streetNumber">Street Number</label>
+                <input id = "streetNumber" type="number" name="streetNumber" required>
+                <br>
+                <button id='detailsButton' type="submit">Save</button>
+            </form>
+        </div>
+
+        <div id="display" class="hidden content">
+
+        </div>
+        <div id="orderButtonDiv" class="hidden content">
+            <button id='orderButton' type="submit">Order</button>
+        </div>
+    </div>
 
 </div>
 </body>

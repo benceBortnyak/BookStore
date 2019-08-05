@@ -101,8 +101,13 @@ function getAuthorization() {
 function setUnauthorized() {
     return localStorage.removeItem('user');
 }
+function deleteStorage() {
+    localStorage.clear();
+    sessionStorage.clear();
+}
 
 function onLoad() {
+    deleteStorage();
     buttons = ['home','cart','login','logout'];
     addEventListener("load",onBookLoad);
     const homeButton = document.getElementById('home');
@@ -118,6 +123,8 @@ function onLoad() {
     registerButton.addEventListener('click',onRegisterButtonClicked);
     const registerFormButton = document.getElementById('submitButton');
     registerFormButton.addEventListener('click',onRegisterFormButtonClicked);
+    const orderBtn = document.getElementById('orderButton');
+    orderBtn.addEventListener('click',onOrderButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);
