@@ -48,7 +48,6 @@ public class DetailsServlet extends AbstractServlet {
             Integer streetNo = Integer.valueOf(req.getParameter("streetNo"));
             UserDetails userDetails = new UserDetails(0,city,street,zip,streetNo,0);
             User user = (User) req.getSession().getAttribute("user");
-            System.out.println(user.getId());
             try {
                 UserDetails userDetailsResp = userService.addUserDetalis(userDetails, user.getId());
                 sendMessage(resp,HttpServletResponse.SC_OK,userDetailsResp);

@@ -1,12 +1,12 @@
 function getBooksFromSessionStorage() {
     let books = new Array();
-    for (let i = 1; i <sessionStorage.length ; i++) {
-        books.push(JSON.parse(sessionStorage.getItem(i + 'book')));
+    for (let i = 0; i <sessionStorage.length ; i++) {
+        books.push(JSON.parse(sessionStorage.getItem(i+1 + 'book')));
     }
     return books;
 }
 function getCurrentUser() {
-    return JSON.stringify(localStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('user'));
 }
 
 function getUserDetails(userId){
@@ -94,6 +94,9 @@ function onOrderResponse(xhr) {
 }
 function onOrderBookLoad() {
     getUserDetails(getCurrentUser());
+    showContents(['main','cartDiv']);
+    const orderBtn = document.getElementById('orderButton');
+    orderBtn.addEventListener('click',onOrderButtonClicked);
 
 }
 function onOrderButtonClicked() {
@@ -101,14 +104,13 @@ function onOrderButtonClicked() {
 
     const params = new URLSearchParams();
     params.append('books',JSON.stringify(books));
+
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load',onOrderLoad);
     xhr.addEventListener('error', onNetworkError);
     xhr.open('POST', 'order');
-    console.log(params);
+    console.log(books);
     xhr.send(params);
-
-
 }
 
 function onOrderLoad() {

@@ -1,6 +1,8 @@
 function onLogoutButtonClicked() {
 
     setUnauthorized();
+    sessionStorage.clear();
+    onBookLoad();
     document.getElementById('loginDiv').removeAttribute('class');
     document.getElementById('register').removeAttribute('class');
     document.getElementById('logoutBtn').setAttribute('class',"content hidden");
@@ -14,6 +16,7 @@ function onLogoutButtonClicked() {
 
 }
 function loggedOut() {
+
     console.log('logged out');
 
 }

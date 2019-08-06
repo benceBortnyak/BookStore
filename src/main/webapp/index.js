@@ -123,8 +123,10 @@ function onLoad() {
     registerButton.addEventListener('click',onRegisterButtonClicked);
     const registerFormButton = document.getElementById('submitButton');
     registerFormButton.addEventListener('click',onRegisterFormButtonClicked);
-    const orderBtn = document.getElementById('orderButton');
-    orderBtn.addEventListener('click',onOrderButtonClicked);
+    const showFormButton =document.getElementById('showFormButton');
+    showFormButton.addEventListener('click',onOrderBookLoad);
+    const addBookButton = document.getElementById('addBookButton');
+    addBookButton.addEventListener('click',onAddBookButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

@@ -2,7 +2,7 @@ let cartElement;
 
 function getItemsFromLocalStorage() {
     removeAllChildren(cartElement);
-    if(hasAuthorization()) {
+    if(hasAuthorization())
         if (sessionStorage.length === 0) {
             onBookLoad();
             alert('Cart is empty');
@@ -28,7 +28,7 @@ function getItemsFromLocalStorage() {
                 const price = document.createElement("li");
                 price.textContent = 'price: ' + book.bookPrice;
                 listOpen.appendChild(price);
-                const bookId = book.bookId + book.bookTitle;
+                const bookId = book.bookId + 'book';
                 const addToCartButton = document.createElement('input');
                 addToCartButton.setAttribute('type', 'button');
                 addToCartButton.setAttribute('id', bookId);
@@ -38,14 +38,14 @@ function getItemsFromLocalStorage() {
                 });
                 bookEle.appendChild(addToCartButton);
             }
-            onOrderBookLoad();
-            showContents(['main', 'cartDiv']);
-        }
+            showContents(['main', 'cartDiv','showFormBtn']);
+
     }else{
         alert('You have to login to use your cart');
     }
 }
 function removeFromStorage(bookId) {
+
     sessionStorage.removeItem(bookId);
     getItemsFromLocalStorage();
 }

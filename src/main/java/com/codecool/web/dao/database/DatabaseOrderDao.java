@@ -36,10 +36,12 @@ public class DatabaseOrderDao extends AbstractDao implements OrderDao {
                 statement.setInt(1, bookList.get(i).getBookId());
                 statement.setInt(2, orderId);
                 executeInsert(statement);
+                connection.commit();
             }
-            connection.commit();
+
         } catch (SQLException ex) {
             connection.rollback();
+            throw ex;
         }
 
     }

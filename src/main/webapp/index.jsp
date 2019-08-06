@@ -16,6 +16,7 @@
         <c:url value="logout.js" var="logoutScriptUrl"/>
         <c:url value="register.js" var="registerScriptUrl"/>
         <c:url value="order.js" var="orderScriptUrl"/>
+        <c:url value="admin.js" var="adminScriptUrl"/>
         <link rel="stylesheet" type="text/css" href="${styleUrl}">
         <script src="${indexScriptUrl}"></script>
         <script src="${booksScriptUrl}"></script>
@@ -24,6 +25,7 @@
         <script src="${logoutScriptUrl}"></script>
         <script src="${registerScriptUrl}"></script>
         <script src="${orderScriptUrl}"></script>
+        <script src="${adminScriptUrl}"></script>
         <title>Book Store</title>
     </head>
 <body>
@@ -76,38 +78,53 @@
 
     <div id="booksDiv" class="hidden content"></div>
 
-    <div id="cartDiv" class="hidden content">
-
-    </div>
+    <div id="cartDiv" class="hidden content"></div>
 
     <div id="loginRegisterDiv" class="hidden content"></div>
 
-    <div id = "userDetails" class="hidden content">
-        <div id = "userForm" class="hidden content">
-            <form accept-charset=utf-8 id='detailsForm' onsubmit="return false;">
-                <h1>Details</h1>
-                <label for="city">City</label>
-                <input id ="city" type="text" name="city" required>
-                <br>
-                <label for="street">Street</label>
-                <input id = "street" type="text" name="street" required>
-                <br>
-                <label for="ZipCode">Zip Code</label>
-                <input id = "ZipCode" type="number" name="ZipCode" required>
-                <br>
-                <label for="streetNumber">Street Number</label>
-                <input id = "streetNumber" type="number" name="streetNumber" required>
-                <br>
-                <button id='detailsButton' type="submit">Save</button>
-            </form>
-        </div>
+    <div id = "userForm" class="hidden content">
+        <form accept-charset=utf-8 id='detailsForm' onsubmit="return false;">
+            <h1>Details</h1>
+            <label for="city">City</label>
+            <input id ="city" type="text" name="city" required>
+            <br>
+            <label for="street">Street</label>
+            <input id = "street" type="text" name="street" required>
+            <br>
+            <label for="ZipCode">Zip Code</label>
+            <input id = "ZipCode" type="number" name="ZipCode" required>
+            <br>
+            <label for="streetNumber">Street Number</label>
+            <input id = "streetNumber" type="number" name="streetNumber" required>
+            <br>
+            <button id='detailsButton' type="submit">Save</button>
+        </form>
+    </div>
+    <div id = "addBook" class="hidden content">
+        <form accept-charset=utf-8 id="bookForm" onsubmit="return false;">
+            <h1>Add Book</h1>
+            <label for="title">Title</label>
+            <input id ="title" type="text" name="title" required>
+            <br>
+            <label for="author">Author</label>
+            <input id = "author" type="text" name="author" required>
+            <br>
+            <label for="pages">Number of pages</label>
+            <input id = "pages" type="number" name="pages" required>
+            <br>
+            <button id='addBookButton' type="submit">add book</button>
+        </form>
+    </div>
 
-        <div id="display" class="hidden content">
+    <div id="display" class="hidden content">
 
-        </div>
-        <div id="orderButtonDiv" class="hidden content">
-            <button id='orderButton' type="submit">Order</button>
-        </div>
+    </div>
+    <div id="showFormBtn" class="hidden content">
+        <button id= "showFormButton" type="submit">Order</button>
+    </div>
+
+    <div id="orderButtonDiv" class="hidden content">
+        <button id="orderButton" type="submit">Order</button>
     </div>
 
 </div>

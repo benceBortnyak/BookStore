@@ -45,12 +45,12 @@ public class DatabaseBookDao extends AbstractDao implements BookDao {
     public Book addBook(Book book) throws SQLException{
         boolean autoCommit = connection.getAutoCommit();
         connection.setAutoCommit(false);
-        String sql = "INSERT into books (book_title,book_author,book_page,stock) VALUES (?,?,?,?,?)";
+        String sql = "INSERT into books (book_title,book_author,book_page,stock) VALUES (?,?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)){
             statement.setString(1,book.getBookTitle());
             statement.setString(2,book.getBookAuthor());
             statement.setInt(3,book.getBookPage());
-            statement.setInt(4,book.getStock());
+            statement.setInt(4,1000);
             executeInsert(statement);
             ResultSet resultSet = statement.getGeneratedKeys();
             if(resultSet.next()) {
