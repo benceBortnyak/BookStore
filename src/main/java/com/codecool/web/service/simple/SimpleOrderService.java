@@ -17,9 +17,9 @@ public class SimpleOrderService implements OrderService {
     }
 
     @Override
-    public Integer createOrder(List<Book> books, int order_user_id)throws IllegalArgumentException,ServiceException{
+    public Integer createOrder(List<Book> books, int orderUserId)throws IllegalArgumentException,ServiceException{
         try{
-            return orderDao.createOrder(books,order_user_id);
+            return orderDao.createOrder(books,orderUserId);
         }catch (SQLException e ){
             throw new ServiceException(e.getMessage());
         }

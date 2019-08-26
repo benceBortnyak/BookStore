@@ -11,5 +11,4 @@ public interface BookService{
         List<Book> findAllBook() throws SQLException, ServiceException;
         void changeStock(int id,int stock) throws SQLException,ServiceException;
         public Book addBook(Book book) throws SQLException,ServiceException;
-
 }

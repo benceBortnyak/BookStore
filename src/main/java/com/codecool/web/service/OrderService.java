@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    Integer createOrder(List<Book> books, int order_user_id)throws SQLException, ServiceException,IllegalArgumentException;
+    Integer createOrder(List<Book> books, int orderUserId)throws SQLException, ServiceException,IllegalArgumentException;
     void addOrderBook(List<Book> bookList,int orderId) throws SQLException,ServiceException;
     void changeStatus(boolean status,int id ) throws SQLException,ServiceException;
 

@@ -70,10 +70,10 @@ public final class DatabaseUserDao extends AbstractDao implements UserDao {
     }
 
     @Override
-    public UserDetails getUserDetails(int userID) throws SQLException,IllegalArgumentException{
+    public UserDetails getUserDetails(int userId) throws SQLException,IllegalArgumentException{
         String sql = " SELECT * FROM user_details where user_id = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setInt(1, userID);
+            statement.setInt(1, userId);
             ResultSet rs = statement.executeQuery();
             if(rs.next()){
                 return fetchUserDetails(rs);

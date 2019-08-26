@@ -25,17 +25,17 @@ public class SimpleUserService implements UserService {
         }
     }
     @Override
-    public User addUser(String user_email ,String user_first_name,String user_second_name,String user_password ,Boolean is_admin ) throws SQLException,ServiceException{
+    public User addUser(String userEmail ,String userFirstName,String userSecondName,String userPassword ,Boolean isAdmin ) throws SQLException,ServiceException{
         try{
-            return userDao.addUser(user_email ,user_first_name,user_second_name,user_password ,is_admin);
+            return userDao.addUser(userEmail ,userFirstName,userSecondName,userPassword ,isAdmin);
         }catch (IllegalArgumentException e){
             throw new ServiceException(e.getMessage());
         }
     }
     @Override
-    public UserDetails addUserDetalis(UserDetails userDetails, int user_id) throws ServiceException,IllegalArgumentException{
+    public UserDetails addUserDetalis(UserDetails userDetails, int userId) throws ServiceException,IllegalArgumentException{
         try{
-            return userDao.addUserDetalis(userDetails,user_id);
+            return userDao.addUserDetalis(userDetails,userId);
         }catch (SQLException e){
             throw new ServiceException(e.getMessage());
         }
